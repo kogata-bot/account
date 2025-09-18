@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}メンバー追加{% endblock title %}
+{% block h1 %}メンバー追加{% endblock h1 %}
+
+{% block content %}
+    <form method='post'>{% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value='追加'>
+    </form>
+{% endblock content %}
+    

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}イベント詳細{% endblock title %}
+{% block h1 %}イベント詳細{% endblock h1 %}
+
+{% block content %}
+<table border="3" style="text-align:center;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>日付</th>
+            <th>参加人数</th>
+            <th>日謝/1人</th>
+            <th>日謝</th>
+            <th>部屋代/1人</th>
+            <th>部屋代</th>
+            <th>部屋代残金</th>
+            <th>臨時収入</th>
+            <th>臨時支出</th>
+            <th>メモ</th>
+        </tr>
+    </thead>    
+    <tbody>        
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.event.date }}</td>
+            <td>{{ object.cnt_person }}</td>
+            <td>{{ object.unit_teach_price }}</td> 
+            <td>{{ object.get_teach_price }}</td> 
+            <td>{{ object.unit_room_price }}</td>
+            <td>{{ object.room_price }}</td>
+            <td>{{ object.get_room_balance }}</td> 
+            <td>{{ object.extra_income }}</td>
+            <td>{{ object.extra_outgo }}</td>
+            <td>{{ object.memo }}</td> 
+        </tr>
+</table>
+<a href="{% url 'list-payment' %}">一覧へ</a>
+<a href="{% url 'update-payment' object.pk%}" class="btn btn-primary">編集</a>
+<a href="{% url 'delete-payment' object.pk%}" class="btn btn-primary">削除</a>
+
+
+{% endblock content %}m

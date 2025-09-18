@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}メンバー削除{% endblock title %}
+{% block h1 %}メンバー削除{% endblock h1 %}
+
+{% block content %}
+    <form method='post'>{% csrf_token %}
+        <p>開催日時{{object.date}}の{{object.member.name}}さんの予定を削除しますか？</p>
+        <input type='submit' value='削除'>
+    </form>
+{% endblock content %}
+    

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}メンバー詳細{% endblock title %}
+{% block h1 %}メンバー詳細{% endblock h1 %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>メンバー名</th>
+            <th>種別</th>
+            <th>加入日</th>
+            <th>更新日</th>
+        </tr>
+    </thead>    
+    <tbody>        
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.name }}</td>
+            <td>{{ object.get_membership_type_display}}</td>
+            <td>{{ object.created_at }}</td>
+            <td>{{ object.updated_at }}</td> 
+        </tr>
+</table>
+<a href="{% url 'list-member' %}">一覧へ</a>
+<a href="{% url 'update-member' object.pk%}" class="btn btn-primary">編集</a>
+<a href="{% url 'delete-member' object.pk%}" class="btn btn-primary">削除</a>
+{% endblock content %}m

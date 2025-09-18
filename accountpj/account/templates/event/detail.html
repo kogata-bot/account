@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}イベント詳細{% endblock title %}
+{% block h1 %}イベント詳細{% endblock h1 %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>日付</th>
+            <th>メンバー名</th>
+            <th>出欠</th>
+            <th>作成日</th>
+            <th>更新日</th>
+        </tr>
+    </thead>    
+    <tbody>        
+        <tr>
+            <td>{{ object.id }}</td>
+            <td>{{ object.date }}</td>
+            <td>{{ object.member.name }}</td> 
+            <td>{{ object.get_participants_display}}</td>
+            <td>{{ object.created_at }}</td>
+            <td>{{ object.updated_at }}</td> 
+        </tr>
+</table>
+<a href="{% url 'list-event' %}">一覧へ</a>
+<a href="{% url 'update-event' object.pk%}" class="btn btn-primary">編集</a>
+<a href="{% url 'delete-event' object.pk%}" class="btn btn-primary">削除</a>
+
+
+{% endblock content %}m

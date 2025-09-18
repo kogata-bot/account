@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}メンバー編集{% endblock title %}
+{% block h1 %}メンバー編集{% endblock h1 %}
+
+{% block content %}
+    <form method='post'>{% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value='編集'>
+    </form>
+{% endblock content %}
+    

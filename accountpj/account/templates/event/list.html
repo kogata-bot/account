@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}イベントリスト{% endblock title %}
+{% block h1 %}イベントリスト{% endblock h1 %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>開催日</th>
+        </tr>
+    </thead>    
+    <tbody>        
+    {% for event in event_list%}
+        <tr>
+            <td>{{ event.id }}</td>
+            <td>{{ event.date }}</td>
+            <td>
+                <a href="{% url 'detail-event' event.pk%}" class="btn btn-primary">詳細</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}
+    

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}メンバーリスト{% endblock title %}
+{% block h1 %}メンバーリスト{% endblock h1 %}
+
+{% block content %}
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>メンバー名</th>
+        </tr>
+    </thead>    
+    <tbody>        
+    {% for member in member_list%}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member.name }}</td>
+            <td>
+                <a href="{% url 'detail-member' member.pk%}" class="btn btn-primary">詳細</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock content %}
+    
